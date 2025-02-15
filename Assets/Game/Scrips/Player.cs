@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -10,11 +11,13 @@ public class Player : MonoBehaviour
     private Animator anim;
     protected string currentAnim;
     protected int maxHealth = 100;
+    [SerializeField] private Image hpBar;
     [SerializeField] protected int currentHealth;
 
     protected float horizontal;
     protected float vertical;
     protected bool isFacingRight;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -25,6 +28,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         playerMove();
+        UpdateHpBar();
     }
 
     protected virtual void playerMove(){
@@ -57,9 +61,13 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int amount){
         currentHealth -= amount;
+        UpdateHpBar();
     }
 
     private void Die(){
 
+    }
+    private void UpdateHpBar(){
+        hpBar.fillAmount = currentHealth / maxHealth;
     }
 }
