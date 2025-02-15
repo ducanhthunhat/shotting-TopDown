@@ -4,5 +4,14 @@ using UnityEngine;
 
 public class healthEnemy : Enemy
 {
-    
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.CompareTag("Player")){
+            player.TakeDamage(20);
+        }
+    }
+    private void OnTriggerStay2D(Collider2D other) {
+        if(other.CompareTag("Player")){
+            player.TakeDamage(20);
+        }
+    }
 }
