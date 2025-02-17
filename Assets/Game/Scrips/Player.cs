@@ -28,46 +28,60 @@ public class Player : MonoBehaviour
     void Update()
     {
         playerMove();
-        UpdateHpBar();
     }
 
-    protected virtual void playerMove(){
+    protected virtual void playerMove()
+    {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
         rb.velocity = new Vector2(horizontal * Speed, vertical * Speed);
-        if(Mathf.Abs(horizontal) > 0 || Mathf.Abs(vertical) > 0){
+        if (Mathf.Abs(horizontal) > 0 || Mathf.Abs(vertical) > 0)
+        {
             changeAnim("run");
         }
-        else {
+        else
+        {
             changeAnim("idle");
         }
-        if((horizontal > 0 && isFacingRight) || (horizontal < 0 && !isFacingRight)){
+        if ((horizontal > 0 && isFacingRight) || (horizontal < 0 && !isFacingRight))
+        {
             Flip();
         }
     }
 
-    protected void changeAnim(string animName){
-        if(currentAnim != animName){
+    protected void changeAnim(string animName)
+    {
+        if (currentAnim != animName)
+        {
             currentAnim = animName;
             anim.ResetTrigger(animName);
             anim.SetTrigger(currentAnim);
         }
     }
 
-    protected void Flip(){
+    protected void Flip()
+    {
         isFacingRight = !isFacingRight;
-        transform.Rotate(0,180,0);
+        transform.Rotate(0, 180, 0);
     }
 
-    public void TakeDamage(int amount){
+    public void TakeDamage(int amount)
+    {
         currentHealth -= amount;
         UpdateHpBar();
     }
+    public void Heal(int heal)
+    {
+        currentHealth += heal;
+        UpdateHpBar();
+    }
 
-    private void Die(){
+    private void Die()
+    {
 
     }
-    private void UpdateHpBar(){
-        hpBar.fillAmount = currentHealth / maxHealth;
+    protected void UpdateHpBar()
+    {
+        hpBar.fillAmount = (float)currentHealth / maxHealth;
     }
 }
