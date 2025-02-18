@@ -7,7 +7,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected float enemyMoveSpeed = 1f;
     protected Player player;
     protected bool isFacingRight;
-    protected float maxHp = 100;
+    [SerializeField] protected float maxHp = 100;
     [SerializeField] protected float currentHP;
     [SerializeField] private Image hpBar;
     [SerializeField] protected int enterDamage = 10;
