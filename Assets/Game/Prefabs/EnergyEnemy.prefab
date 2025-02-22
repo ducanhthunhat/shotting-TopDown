@@ -195,11 +195,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyMoveSpeed: 2
+  maxHp: 100
   currentHP: 0
   hpBar: {fileID: 2348882782354207580}
   enterDamage: 10
   stayDamage: 1
-  energyObject: {fileID: 6138437336258064323, guid: 13ebbf955bb70fa478b672ce0d98d362, type: 3}
+  energyObject: {fileID: 8909985368758488273, guid: 13ebbf955bb70fa478b672ce0d98d362, type: 3}
 --- !u!1001 &2683328185881342232
 PrefabInstance:
   m_ObjectHideFlags: 0

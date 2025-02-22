@@ -7,6 +7,8 @@ public class BossEnemy : Enemy
     [SerializeField] private float hpValue = 100f;
     [SerializeField] private GameObject minions;
     [SerializeField] private float skillCoolDown = 2f;
+    [SerializeField] private GameObject usbPrefabs;
+
     private float nextSkillTime = 0f;
     private EnemyBullet enemyBullet;
     private void Awake()
@@ -17,6 +19,11 @@ public class BossEnemy : Enemy
     {
         UseSkill();
         base.Update();
+    }
+    protected override void Die()
+    {
+        Instantiate(usbPrefabs, transform.position, Quaternion.identity);
+        base.Die();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
