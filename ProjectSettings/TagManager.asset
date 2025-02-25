@@ -7,6 +7,8 @@ TagManager:
   - playerBullet
   - Enemy
   - EnemyBullet
+  - USB
+  - Energy
   layers:
   - Default
   - TransparentFX
@@ -52,4 +54,7 @@ TagManager:
     locked: 0
   - name: gun
     uniqueID: 1025476589
+    locked: 0
+  - name: GameUI
+    uniqueID: 1431689257
     locked: 0
